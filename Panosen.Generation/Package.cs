@@ -6,7 +6,7 @@ namespace Panosen.Generation
     /// <summary>
     /// 生成结果
     /// </summary>
-    public class GenerationResponse
+    public class Package
     {
         /// <summary>
         /// Ban Duplicate
@@ -23,9 +23,9 @@ namespace Panosen.Generation
         /// </summary>
         /// <param name="path"></param>
         /// <param name="content"></param>
-        public void Write(string path, string content)
+        public void Add(string path, string content)
         {
-            this.Write(path, new PlainFile { FilePath = path, Content = content });
+            this.Add(path, new PlainFile { FilePath = path, Content = content });
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace Panosen.Generation
         /// </summary>
         /// <param name="path"></param>
         /// <param name="bytes"></param>
-        public void Write(string path, byte[] bytes)
+        public void Add(string path, byte[] bytes)
         {
-            this.Write(path, new BytesFile { FilePath = path, Bytes = bytes });
+            this.Add(path, new BytesFile { FilePath = path, Bytes = bytes });
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Panosen.Generation
         /// </summary>
         /// <param name="path"></param>
         /// <param name="file"></param>
-        private void Write(string path, FileBase file)
+        private void Add(string path, FileBase file)
         {
             var fileCount = this.FileCountMap.ContainsKey(path) ? this.FileCountMap[path] : 0;
             if (fileCount == 0)
