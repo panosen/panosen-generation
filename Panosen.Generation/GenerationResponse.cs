@@ -18,11 +18,21 @@ namespace Panosen.Generation
         /// </summary>
         public Dictionary<string, FileBase> Files { get; private set; } = new Dictionary<string, FileBase>();
 
+        /// <summary>
+        /// 写入字符串
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="content"></param>
         public void Write(string path, string content)
         {
             this.Write(path, new PlainFile { FilePath = path, Content = content });
         }
 
+        /// <summary>
+        /// 写入字节
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="bytes"></param>
         public void Write(string path, byte[] bytes)
         {
             this.Write(path, new BytesFile { FilePath = path, Bytes = bytes });
