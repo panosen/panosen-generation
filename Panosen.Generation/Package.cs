@@ -16,7 +16,7 @@ namespace Panosen.Generation
         /// <summary>
         /// 文件
         /// </summary>
-        public Dictionary<string, FileBase> Files { get; private set; } = new Dictionary<string, FileBase>();
+        public List<FileBase> Files { get; private set; } = new List<FileBase>();
 
         /// <summary>
         /// 写入字符串
@@ -25,7 +25,7 @@ namespace Panosen.Generation
         /// <param name="content"></param>
         public void Add(string path, string content)
         {
-            this.Add(path, new PlainFile { FilePath = path, Content = content });
+            this.Add(new PlainFile { FilePath = path, Content = content });
         }
 
         /// <summary>
@@ -35,25 +35,27 @@ namespace Panosen.Generation
         /// <param name="bytes"></param>
         public void Add(string path, byte[] bytes)
         {
-            this.Add(path, new BytesFile { FilePath = path, Bytes = bytes });
+            this.Add(new BytesFile { FilePath = path, Bytes = bytes });
         }
 
         /// <summary>
         /// 防止重复写入文件
         /// </summary>
-        /// <param name="path"></param>
         /// <param name="file"></param>
-        private void Add(string path, FileBase file)
+        private void Add(FileBase file)
         {
+            var path = file.FilePath;
+
             var fileCount = this.FileCountMap.ContainsKey(path) ? this.FileCountMap[path] : 0;
             if (fileCount == 0)
             {
-                this.Files.Add(path, file);
+                this.Files.Add(file);
                 this.FileCountMap[path] = 1;
                 return;
             }
 
-            this.Files.Add(path + "." + fileCount, file);
+            file.FilePath = path + "." + fileCount;
+            this.Files.Add(file);
             this.FileCountMap[path] = fileCount + 1;
         }
     }
