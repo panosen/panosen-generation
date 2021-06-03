@@ -24,4 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish Nuget
-      run: dotnet nuget push Panosen.Generation/bin/Release/Panosen.Generation.*.nupkg -s https://api.nuget.org/v3/index.json -k ${PANOSEN_NUGET_API_KEY} --skip-duplicate
+      run: dotnet nuget push Panosen.Generation/bin/Release/Panosen.Generation.*.nupkg -s https://api.nuget.org/v3/index.json -k ${{PANOSEN_NUGET_API_KEY}} --skip-duplicate
