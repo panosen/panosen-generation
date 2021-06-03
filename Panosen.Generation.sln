@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panosen.Generation", "Panosen.Generation\Panosen.Generation.csproj", "{DCE5495A-D942-48F3-AE80-02AFC526A286}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE5495A-D942-48F3-AE80-02AFC526A286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE5495A-D942-48F3-AE80-02AFC526A286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE5495A-D942-48F3-AE80-02AFC526A286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE5495A-D942-48F3-AE80-02AFC526A286}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD8B7E4A-31F1-47E4-9487-9E9C7CE82FA2}
+	EndGlobalSection
+EndGlobal
