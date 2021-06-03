@@ -20,6 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build --no-restore -c Release
+    - name: Publish nuget.org
+      with:
+        run: dotnet nuget push Panosen.Generation\bin\Release\Panosen.Generation.*.nupkg -s https://api.nuget.org/v3/index.json -k ${PANOSEN_NUGET_API_KEY} --skip-duplicate
