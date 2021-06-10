@@ -10,6 +10,7 @@
     <DocumentationFile>bin\$(Configuration)\Panosen.Generation.xml</DocumentationFile>
     <PackageIcon>panosen.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/panosen/panosen-generation</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

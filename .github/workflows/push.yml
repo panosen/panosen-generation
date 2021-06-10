@@ -1,9 +1,7 @@
-name: .NET
+name: push
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
 jobs:
@@ -22,6 +20,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore -c Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Publish Nuget
+      run: dotnet test
+    - name: Publish Nuget Panosen.Generation
       run: dotnet nuget push Panosen.Generation/bin/Release/Panosen.Generation.*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.PANOSEN_NUGET_API_KEY}} --skip-duplicate
