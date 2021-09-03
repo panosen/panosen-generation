@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Panosen.Generation
 {
@@ -21,21 +22,26 @@ namespace Panosen.Generation
         /// <summary>
         /// 写入字符串
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="content"></param>
-        public void Add(string path, string content)
+        public void Add(string path, string content, Encoding encoding = null)
         {
-            this.Add(new PlainFile { FilePath = path, Content = content });
+            this.Add(new PlainFile
+            {
+                FilePath = path,
+                Content = content,
+                Encoding = encoding
+            });
         }
 
         /// <summary>
         /// 写入字节
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="bytes"></param>
         public void Add(string path, byte[] bytes)
         {
-            this.Add(new BytesFile { FilePath = path, Bytes = bytes });
+            this.Add(new BytesFile
+            {
+                FilePath = path,
+                Bytes = bytes
+            });
         }
 
         /// <summary>
