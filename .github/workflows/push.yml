@@ -23,3 +23,5 @@ jobs:
       run: dotnet test
     - name: Publish Nuget Panosen.Generation
       run: dotnet nuget push Panosen.Generation/bin/Release/Panosen.Generation.*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.PANOSEN_NUGET_API_KEY}} --skip-duplicate
+    - name: Publish Nuget Panosen.Generation.Extension
+      run: dotnet nuget push Panosen.Generation.Extension/bin/Release/Panosen.Generation.Extension.*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.PANOSEN_NUGET_API_KEY}} --skip-duplicate
