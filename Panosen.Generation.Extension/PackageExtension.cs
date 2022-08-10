@@ -21,7 +21,7 @@ namespace Panosen.Generation
         /// <summary>
         /// 写入到文件夹
         /// </summary>
-        public static void WriteTo(this Package package, string output, Encoding encoding)
+        public static void WriteTo(this Package package, string output, Encoding defaultEncoding)
         {
             foreach (var item in package.Files)
             {
@@ -33,13 +33,15 @@ namespace Panosen.Generation
                     Directory.CreateDirectory(fileDirectory);
                 }
 
-                if (item is Panosen.Generation.PlainFile)
+                if (item is PlainFile)
                 {
-                    if (File.Exists(path) && Hash.SHA256HEX(File.ReadAllBytes(path)) == Hash.SHA256HEX(encoding.GetBytes(((PlainFile)item).Content)))
+                    var plainFile = item as PlainFile;
+                    var finalEncodig = plainFile.Encoding ?? defaultEncoding ?? Encoding.UTF8;
+                    if (File.Exists(path) && Hash.SHA256HEX(File.ReadAllBytes(path)) == Hash.SHA256HEX(finalEncodig.GetBytes(((PlainFile)item).Content)))
                     {
                         continue;
                     }
-                    File.WriteAllText(path, ((PlainFile)item).Content, encoding);
+                    File.WriteAllText(path, ((PlainFile)item).Content, finalEncodig);
                 }
 
                 if (item is BytesFile)
