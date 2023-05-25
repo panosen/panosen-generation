@@ -15,6 +15,11 @@ namespace Panosen.Generation
         public string FilePath { get; set; }
 
         /// <summary>
+        /// 如果文件已存在，则跳过
+        /// </summary>
+        public bool SkipIfExists { get; set; }
+
+        /// <summary>
         /// 文件类型
         /// </summary>
         public abstract ContentType ContentType { get; }

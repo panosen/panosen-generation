@@ -22,25 +22,27 @@ namespace Panosen.Generation
         /// <summary>
         /// 写入字符串
         /// </summary>
-        public void Add(string path, string content, Encoding encoding = null)
+        public void Add(string path, string content, Encoding encoding = null, bool skipIfExists = false)
         {
             this.Add(new PlainFile
             {
                 FilePath = path,
                 Content = content,
-                Encoding = encoding
+                Encoding = encoding,
+                SkipIfExists = skipIfExists
             });
         }
 
         /// <summary>
         /// 写入字节
         /// </summary>
-        public void Add(string path, byte[] bytes)
+        public void Add(string path, byte[] bytes, bool skipIfExists = false)
         {
             this.Add(new BytesFile
             {
                 FilePath = path,
-                Bytes = bytes
+                Bytes = bytes,
+                SkipIfExists = skipIfExists
             });
         }
 

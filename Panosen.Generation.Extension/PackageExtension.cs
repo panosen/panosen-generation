@@ -33,6 +33,11 @@ namespace Panosen.Generation
                     Directory.CreateDirectory(fileDirectory);
                 }
 
+                if (item.SkipIfExists && File.Exists(path))
+                {
+                    continue;
+                }
+
                 if (item is PlainFile)
                 {
                     var plainFile = item as PlainFile;
